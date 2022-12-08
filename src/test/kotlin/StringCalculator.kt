@@ -6,7 +6,10 @@ class StringCalculatorTest : ShouldSpec({
         should("return zero given the empty string as the input") {
             add("") shouldBe "0"
         }
+        should("return 5 given the input string contains exactly 5") {
+             add("5") shouldBe "5"
+        }
     }
 })
 
-fun add(number: String): String = "0"
+fun add(number: String): String = if (number == "5") "5" else "0"
