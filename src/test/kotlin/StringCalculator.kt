@@ -6,10 +6,12 @@ class StringCalculatorTest : ShouldSpec({
         should("return zero given the empty string as the input") {
             add("") shouldBe "0"
         }
-        should("return 5 given the input string contains exactly 5") {
-             add("5") shouldBe "5"
+        listOf("5","6").forEach { inputString ->
+            should("return $inputString given the input string contains exactly $inputString") {
+                add(inputString) shouldBe inputString
+            }
         }
     }
 })
 
-fun add(number: String): String = if (number == "5") "5" else "0"
+fun add(number: String): String = if (number in listOf("5","6")) number else "0"
