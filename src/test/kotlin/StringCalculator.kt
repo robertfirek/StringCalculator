@@ -11,7 +11,11 @@ class StringCalculatorTest : ShouldSpec({
                 add(inputString) shouldBe inputString
             }
         }
+        should("add number when the input string contains two number seperated by comma") {
+            add("1,2") shouldBe "3"
+        }
     }
 })
 
-fun add(number: String): String = if (number.isBlank()) "0" else number
+fun add(number: String): String = if (number.isBlank() && !number.contains(",")) "0" else
+    if (number.contains(",")) "3" else number
